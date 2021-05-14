@@ -4,7 +4,7 @@ import Login from './Login';
 
 function App() {
   return (
-    <div className="container-fluid">
+    <div className="container">
       <Login/>
     </div>
   );
