@@ -23,13 +23,18 @@ const Profile = () => {
         e.preventDefault();
     }
 
+    const toggleReadOnly = (flag) => {
+        //Changing readOnly property to allow changes to be done
+        document.getElementById('firstName').readOnly = flag;
+        document.getElementById('lastName').readOnly = flag;
+        document.getElementById('email').readOnly = flag;
+        document.getElementById('password').readOnly = flag;
+    }
+
     //Handles edit button
     const handleEdit = () => {
         //Changing readOnly property to allow changes to be done
-        document.getElementById('firstName').readOnly = false;
-        document.getElementById('lastName').readOnly = false;
-        document.getElementById('email').readOnly = false;
-        document.getElementById('password').readOnly = false;
+        toggleReadOnly(false);
 
         //Displays data updated message for 2 seconds
         setError('In edit mode!');
@@ -46,6 +51,9 @@ const Profile = () => {
             setError(result[1]);
             return
         }
+        //Change to readOnly state
+        toggleReadOnly(true);
+
         //Displays data updated message for 2 seconds
         setError('Data updated!');
         setTimeout(() => {
