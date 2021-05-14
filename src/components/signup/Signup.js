@@ -3,6 +3,7 @@ import './Signup.css';
 
 const Signup = () => {
 
+    //State variables
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -10,24 +11,30 @@ const Signup = () => {
     const [repeatPassword, setRepeatPassword] = useState('');
     const [error, setError] = useState('');
 
+    //Handles the submit action of the form
     const handleSubmit = (e) => {
         e.preventDefault();
         const result = validateFields();
 
-        if(!result[0]){
+        if(!result[0]){ //Print error if returns false
             setError(result[1]);
             return;
         }
+        setError('');
 
-        alert('All done');
+        //Generating object to store to localstorage
+        const userData = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password
+        }
 
-        console.log(firstName);
-        console.log(lastName);
-        console.log(email);
-        console.log(password);
-        console.log(repeatPassword);
+        //Storing data to localstorage for persistence
+        localStorage.setItem('user', JSON.stringify(userData));
     }
 
+    //Validation of fields beforing data gets stored
     const validateFields = () => {
         if(firstName === '' 
             || lastName === ''
@@ -35,6 +42,10 @@ const Signup = () => {
             || password === ''
             || repeatPassword === ''){
                 return [false, 'All fields are mandatory!'];
+        }
+
+        if(password.length < 6){
+            return [false, 'Password must be 6 characters in length!'];
         }
 
         if(password !== repeatPassword){

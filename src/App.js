@@ -1,11 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
 import Signup from './components/signup/Signup';
+import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
 
 function App() {
   return (
     <div>
-      <Signup />
+      <Router>
+        <Switch>
+          <Route exact path='/signup' component={Signup}/>
+        </Switch>
+      </Router>
     </div>
   );
 }
