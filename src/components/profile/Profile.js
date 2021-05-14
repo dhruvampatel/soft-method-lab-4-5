@@ -174,7 +174,7 @@ const Profile = () => {
                                         padding: '7px',
                                         cursor: 'pointer'}}
                                         onClick={handleEdit}>Edit</button>
-                                        <button style={{
+                                    <button style={{
                                         width: '100px',
                                         backgroundColor: 'green',
                                         color: 'white',
