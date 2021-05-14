@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Signup.css';
+import {useHistory} from 'react-router-dom';
 
 const Signup = () => {
 
@@ -10,6 +11,7 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
     const [error, setError] = useState('');
+    const history = useHistory();
 
     //Handles the submit action of the form
     const handleSubmit = (e) => {
@@ -32,6 +34,9 @@ const Signup = () => {
 
         //Storing data to localstorage for persistence
         localStorage.setItem('user', JSON.stringify(userData));
+
+        //Redirect to profile page
+        history.replace('/profile');
     }
 
     //Validation of fields beforing data gets stored
