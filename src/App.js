@@ -1,15 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import Signup from './components/signup/Signup';
+import Profile from './components/profile/Profile';
 import Login from './Login';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="container-fluid">
+    <div>
       <Router>
-        <Route exact path='/login' component={Login}/>
+        <Switch>
+          <Route exact path='/signup' component={Signup}/>
+          <Route exact path='/login' component={Login}/>  
+          <Route exact path='/profile' component={Profile}/>
+        </Switch>
       </Router>
-      <Login/>
     </div>
   );
 }
