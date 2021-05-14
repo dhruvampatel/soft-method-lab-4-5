@@ -23,8 +23,8 @@ const Profile = () => {
         e.preventDefault();
     }
 
+    //Changing readOnly property
     const toggleReadOnly = (flag) => {
-        //Changing readOnly property to allow changes to be done
         document.getElementById('firstName').readOnly = flag;
         document.getElementById('lastName').readOnly = flag;
         document.getElementById('email').readOnly = flag;
@@ -47,19 +47,21 @@ const Profile = () => {
     const handleUpdate = () => {
         const result = validateFields();
 
+        //Does not process if validation doesn't pass
         if(!result[0]){
             setError(result[1]);
-            return
+            return;
         }
         //Change to readOnly state
         toggleReadOnly(true);
 
         //Displays data updated message for 2 seconds
-        setError('Data updated!');
+        setError('Data updated! Exited from edit mode!');
         setTimeout(() => {
             setError('');
         },2000);
 
+        //Creating an object to store to localstorage
         const newData = {
             firstName: firstName,
             lastName: lastName,
