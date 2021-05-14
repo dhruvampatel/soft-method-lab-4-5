@@ -5,11 +5,13 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, logError] = useState("");
   const [user, setUser] = useState()
-
+  
   const handleSubmit = async e => {
     e.preventDefault();
-    if(validation() == true)
+    const res = validation();
+    if(!res)
     {
+        logError('');
         const loginData = {
                 email: email,
                 password: password
@@ -17,33 +19,34 @@ const Login = () => {
         setUser(loginData);
         localStorage.setItem('user', JSON.stringify(loginData));
         console.log(loginData);
-        return <div>User is loggged in</div>;
     } else {
+        logError('LOGIN ERROR OCCURED!');
         return <span style={{color:'red'}}>LOGIN ERROR</span>
     }       
   };
 
   
-
   const validation = () =>{
     if(email == "" || password == ""){
-        logError(false);
-        console.log("ERROR");
-        return false;
-    } else {
-        logError(true);
-        return true;
+        return [false, "LOGIN ERROR OCCURED!"];
     }
-  }
-
+}
   return (
-    <div className="container" style={{backgroundColor:'linen'}}>
-    <form onSubmit={handleSubmit} style={{margin:'0px 0px 49px 329px', backgroundImage:`url('https://media.gettyimages.com/photos/futuristic-security-padlock-and-data-protection-picture-id1286601829?s=612x612')`,width:'613px',
+    <div className="container" style={{backgroundColor:'whitesmoke', display:'flex', 
+    flexDirection: 'column',
+    width:'50%',
+    height:'50%',
+    justifyContent:'center',
+    alignItems:'center',
+    margin:'auto',
+    marginTop:'100px',
+    borderRadius:'10px'
+    }}>
+    <form onSubmit={handleSubmit} style={{backgroundImage:`url('https://media.gettyimages.com/photos/futuristic-security-padlock-and-data-protection-picture-id1286601829?s=612x612')`,width:'613px',
         height:'330px' }}>
     <h1 style={{ 
         textAlign:'center',
         color: 'white',
-        marginTop:'100px'
     }}> Login </h1>
     <div style={{
         boxSizing:"border-box",
@@ -65,8 +68,15 @@ const Login = () => {
             </tr>
         </tbody>
     </table> 
+    
     </div> 
     </form>
+    <span style={{
+                marginTop: '10px',
+                color: 'red',
+                fontSize: '15px',
+                fontWeight:'bold'
+            }}>{error}</span>
     </div>
   );
 };
