@@ -79,6 +79,7 @@ const Signup = () => {
                         <td><input 
                                 className='input' 
                                 type='text' 
+                                data-testid='firstName'
                                 placeholder='Enter your first name'
                                 value={firstName}
                                 onChange={e => setFirstName(e.target.value)}></input></td>
@@ -88,6 +89,7 @@ const Signup = () => {
                         <td><input 
                                 className='input' 
                                 type='text' 
+                                data-testid='lastName'
                                 placeholder='Enter your last name'
                                 value={lastName}
                                 onChange={e => setLastName(e.target.value)}></input></td>
@@ -97,6 +99,7 @@ const Signup = () => {
                         <td><input 
                                 className='input' 
                                 type='email' 
+                                data-testid='email'
                                 placeholder='Enter your email address'
                                 value={email}
                                 onChange={e => setEmail(e.target.value)}></input></td>
@@ -106,6 +109,7 @@ const Signup = () => {
                         <td><input 
                                 className='input' 
                                 type='password' 
+                                data-testid='password'
                                 placeholder='Enter your password'
                                 value={password}
                                 onChange={e => setPassword(e.target.value)}></input></td>
@@ -115,6 +119,7 @@ const Signup = () => {
                         <td><input 
                                 className='input' 
                                 type='password' 
+                                data-testid='repeatPassword'
                                 placeholder='Repeat your password'
                                 value={repeatPassword}
                                 onChange={e => setRepeatPassword(e.target.value)}></input></td>
