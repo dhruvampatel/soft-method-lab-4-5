@@ -56,15 +56,15 @@ const Login = () => {
         <tbody>
             <tr>
                 <td><label style={{fontWeight:'bold', color:'white'}} htmlFor="email">Email:</label></td>
-                <td><input type="text" value={email} style={{height:'20px',width:'200px'}} placeholder="Enter Email" onChange={({ target }) => setEmail(target.value)}/></td>
+                <td><input type="text" data-testid={`input-email`} value={email} style={{height:'20px',width:'200px'}} placeholder="Enter Email" onChange={({ target }) => setEmail(target.value)}/></td>
             </tr>
             <tr>
             <td><label style={{fontWeight:'bold', color:'white'}} htmlFor="email">Password:</label></td>
-                <td><input type="password" value={password} style={{height:'20px',width:'200px'}} placeholder="Enter Email" onChange={({ target }) => setPassword(target.value)}/></td>
+                <td><input type="password" data-testid={`input-pass`} value={password} style={{height:'20px',width:'200px'}} placeholder="Enter Email" onChange={({ target }) => setPassword(target.value)}/></td>
             </tr>
             <tr>
                 <td></td>
-                <td><button type="submit" style={{backgroundColor:'grey', color:'white',fontWeight:'bold', height:'30px', width:'210px'}}>Login</button></td>
+                <td><button type="submit" data-testid={`submit-btn`} style={{backgroundColor:'grey', color:'white',fontWeight:'bold', height:'30px', width:'210px'}}>Login</button></td>
             </tr>
         </tbody>
     </table> 

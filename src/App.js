@@ -1,6 +1,6 @@
 import Signup from './components/signup/Signup';
 import Profile from './components/profile/Profile';
-import Login from './Login';
+import Login from './components/login/Login';
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom';
 
 function App() {
